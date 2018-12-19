@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>565</width>
+    <width>648</width>
     <height>619</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="formatExample">
        <attribute name="title">
@@ -60,14 +60,32 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="pasteTextButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>36</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>50</height>
+             </size>
+            </property>
             <property name="font">
              <font>
               <pointsize>12</pointsize>
              </font>
             </property>
             <property name="text">
-             <string>Paste FieldWorks Text Segment from clipboard</string>
+             <string>  Paste FieldWorks Text Segment from clipboard  </string>
             </property>
            </widget>
           </item>
@@ -141,9 +159,9 @@
         <item>
          <layout class="QHBoxLayout" name="SelectFormattingLayout">
           <item>
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="formatStyleSelectLabel">
             <property name="text">
-             <string>TextLabel</string>
+             <string>Select format style: </string>
             </property>
            </widget>
           </item>
@@ -232,17 +250,11 @@
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer_11">
+           <widget class="Line" name="line">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
+           </widget>
           </item>
           <item>
            <layout class="QHBoxLayout" name="DataSourceLayout">
@@ -401,10 +413,16 @@
           <item>
            <widget class="QPushButton" name="CopyButton">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>36</height>
+             </size>
             </property>
             <property name="font">
              <font>
@@ -437,6 +455,379 @@
        <attribute name="title">
         <string>Create format styles</string>
        </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <layout class="QHBoxLayout" name="styleNameLayout">
+          <item>
+           <spacer name="horizontalSpacer_11">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="LITEStyleNameLabel">
+            <property name="text">
+             <string>LITE style name</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox_2"/>
+          </item>
+          <item>
+           <spacer name="StyleSelectionLayout">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="formatStyleBodyLayout">
+          <item>
+           <widget class="QToolBox" name="toolBox">
+            <property name="acceptDrops">
+             <bool>true</bool>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="WordPage">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>227</width>
+               <height>226</height>
+              </rect>
+             </property>
+             <property name="acceptDrops">
+              <bool>true</bool>
+             </property>
+             <attribute name="label">
+              <string>Word</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <layout class="QHBoxLayout" name="legendLabeLayout">
+                <item>
+                 <widget class="QLabel" name="legendLabelLabel">
+                  <property name="text">
+                   <string>Legend label:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="legendLabelLineEdit"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="fontSizeLayout">
+                <item>
+                 <widget class="QLabel" name="fontSizeLabel">
+                  <property name="text">
+                   <string>Font size: </string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="fontSizeLineEdit"/>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="fontSizeComboBox"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="fontStyleLayout">
+                <item>
+                 <widget class="QLabel" name="fontStyleLabel">
+                  <property name="text">
+                   <string>Font style: </string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="fontStyleComboBox"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QGridLayout" name="gridLayout_2">
+                <item row="0" column="0">
+                 <widget class="QPushButton" name="addWordButton">
+                  <property name="text">
+                   <string>Add</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QPushButton" name="moveWordUpButton">
+                  <property name="text">
+                   <string>Move Up</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QPushButton" name="removeWordButton">
+                  <property name="text">
+                   <string>Remove</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QPushButton" name="moveWordDownButton">
+                  <property name="text">
+                   <string>Move Down</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="MorphemesPage">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>146</width>
+               <height>226</height>
+              </rect>
+             </property>
+             <property name="acceptDrops">
+              <bool>true</bool>
+             </property>
+             <attribute name="label">
+              <string>Morphemes</string>
+             </attribute>
+            </widget>
+            <widget class="QWidget" name="LexEntriesPage">
+             <attribute name="label">
+              <string>Lex. Entries</string>
+             </attribute>
+            </widget>
+            <widget class="QWidget" name="LexGlossPage">
+             <attribute name="label">
+              <string>Lex. Gloss</string>
+             </attribute>
+            </widget>
+            <widget class="QWidget" name="LexGramInfoPage">
+             <attribute name="label">
+              <string>Lex. Gram. Info.</string>
+             </attribute>
+            </widget>
+            <widget class="QWidget" name="WordGlossPage">
+             <attribute name="label">
+              <string>Word Gloss</string>
+             </attribute>
+            </widget>
+            <widget class="QWidget" name="WordCatPage">
+             <attribute name="label">
+              <string>Word Cat.</string>
+             </attribute>
+            </widget>
+            <widget class="QWidget" name="FreeTranslationPage">
+             <attribute name="label">
+              <string>Free Translation</string>
+             </attribute>
+            </widget>
+            <widget class="QWidget" name="LiteralTranslationPage">
+             <attribute name="label">
+              <string>Literal Translation</string>
+             </attribute>
+            </widget>
+            <widget class="QWidget" name="NotePage">
+             <attribute name="label">
+              <string>Note</string>
+             </attribute>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_9">
+            <item>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="2" column="0">
+               <layout class="QHBoxLayout" name="ExStyleNameLayout">
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <item alignment="Qt::AlignRight">
+                 <widget class="QLabel" name="ExStyleNameLabel">
+                  <property name="text">
+                   <string>Numbered Example stylename: </string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit"/>
+                </item>
+               </layout>
+              </item>
+              <item row="3" column="0">
+               <layout class="QHBoxLayout" name="firstLineStylenameLayout">
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <item alignment="Qt::AlignRight">
+                 <widget class="QLabel" name="firstLineStylenameLabel">
+                  <property name="text">
+                   <string>First line stylename: </string>
+                  </property>
+                 </widget>
+                </item>
+                <item alignment="Qt::AlignRight">
+                 <widget class="QLineEdit" name="firstLineStylenameLineEdit"/>
+                </item>
+               </layout>
+              </item>
+              <item row="4" column="0">
+               <layout class="QHBoxLayout" name="subLinesStylenameLayout">
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <item alignment="Qt::AlignRight">
+                 <widget class="QLabel" name="subLinesStylenameLabel">
+                  <property name="text">
+                   <string>Subsequent lines stylename: </string>
+                  </property>
+                 </widget>
+                </item>
+                <item alignment="Qt::AlignRight">
+                 <widget class="QLineEdit" name="subLinesStylenameLineEdit"/>
+                </item>
+               </layout>
+              </item>
+              <item row="5" column="0">
+               <layout class="QHBoxLayout" name="formatForLayout">
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <item alignment="Qt::AlignRight">
+                 <widget class="QLabel" name="FormatForLabel">
+                  <property name="text">
+                   <string>Format for:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="formatForComboBox"/>
+                </item>
+               </layout>
+              </item>
+              <item row="1" column="0">
+               <layout class="QHBoxLayout" name="maxWidthLayout">
+                <property name="sizeConstraint">
+                 <enum>QLayout::SetMaximumSize</enum>
+                </property>
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <item alignment="Qt::AlignRight">
+                 <widget class="QLabel" name="maxWidthLabel">
+                  <property name="text">
+                   <string>Maximum width of example: </string>
+                  </property>
+                 </widget>
+                </item>
+                <item alignment="Qt::AlignRight">
+                 <widget class="QLineEdit" name="widthLineEdit"/>
+                </item>
+               </layout>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="unitSelectionComboBox"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="previewLabel">
+              <property name="text">
+               <string>Preview:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTextBrowser" name="textBrowser"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="saveFormatStyleButtonsLayout">
+          <item>
+           <spacer name="horizontalSpacer_14">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QPushButton" name="SaveFormatStyleButton">
+            <property name="text">
+             <string>Save</string>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QPushButton" name="SaveAsFormatStyleButton">
+            <property name="text">
+             <string>Save As ...</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_15">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="outputFormats">
        <attribute name="title">
