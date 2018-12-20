@@ -21,7 +21,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="formatExample">
        <attribute name="title">
@@ -141,9 +141,9 @@
         <item>
          <layout class="QHBoxLayout" name="SelectFormattingLayout">
           <item>
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="formatStyleLabel">
             <property name="text">
-             <string>TextLabel</string>
+             <string>Select format style: </string>
             </property>
            </widget>
           </item>
@@ -181,6 +181,9 @@
               <property name="text">
                <string>Do not include language name</string>
               </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item>
@@ -200,7 +203,11 @@
              </spacer>
             </item>
             <item>
-             <widget class="QComboBox" name="comboBox"/>
+             <widget class="QComboBox" name="comboBox">
+              <property name="editable">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item>
              <spacer name="horizontalSpacer_4">
