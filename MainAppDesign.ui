@@ -60,7 +60,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="pasteButton">
             <property name="font">
              <font>
               <pointsize>12</pointsize>
@@ -127,12 +127,15 @@
            </widget>
           </item>
           <item>
-           <widget class="QTextEdit" name="textEdit">
+           <widget class="QTextEdit" name="clipboardContentTextEdit">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="lineWrapMode">
+             <enum>QTextEdit::NoWrap</enum>
             </property>
            </widget>
           </item>
@@ -154,6 +157,9 @@
             </property>
             <property name="currentText">
              <string/>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QComboBox::AdjustToContents</enum>
             </property>
            </widget>
           </item>
@@ -203,7 +209,7 @@
              </spacer>
             </item>
             <item>
-             <widget class="QComboBox" name="comboBox">
+             <widget class="QComboBox" name="languageNameComboBox">
               <property name="editable">
                <bool>true</bool>
               </property>
@@ -338,7 +344,11 @@
              </widget>
             </item>
             <item>
-             <widget class="QTextEdit" name="OutputPreviewTextEdit"/>
+             <widget class="QTextEdit" name="OutputPreviewTextEdit">
+              <property name="lineWrapMode">
+               <enum>QTextEdit::NoWrap</enum>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
