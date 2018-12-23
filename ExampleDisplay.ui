@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ExampleDisplay</class>
+ <widget class="QWidget" name="ExampleDisplay">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ExampleDisplay</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="exampleLanguageLabel">
+     <property name="text">
+      <string>Placeholder Language Name</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTextBrowser" name="exampleTextBrowser"/>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="buttonLayout">
+     <item alignment="Qt::AlignRight">
+      <widget class="QPushButton" name="copyButton">
+       <property name="text">
+        <string>Copy to Clipboard</string>
+       </property>
+      </widget>
+     </item>
+     <item alignment="Qt::AlignLeft">
+      <widget class="QPushButton" name="loadAndEditButton">
+       <property name="text">
+        <string>Load and Edit</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
