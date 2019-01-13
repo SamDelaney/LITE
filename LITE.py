@@ -16,18 +16,21 @@ def initialize_globals():
     formatStyles.append(FormatStyle("3-line GSRL standard"))
     formatStyles.append(FormatStyle("4-line GSRL standard"))
     currentExample.selectedFormatStyle = formatStyles[0]
-    #ui.exampleListView.setModel(Ui_ExampleWidget())
+    #ui.exampleListView.setModel(Ui_ExampleWidget()) #incomplete, commented out intentionally
 
-#returns 0 if no language name
-#returns 1 if include language name as first line
-#returns 2 if include language name on right side
-def getLangNameOption():
+def FEOptionsUpdated():
+    #language name option radio buttons
     if ui.noLangNameButton.isChecked():
         currentExample.langNameOption = 0
-    if ui.langNameFirstLineButton.isChecked():
+    elif ui.langNameFirstLineButton.isChecked():
         currentExample.langNameOption = 1
-    if ui.langNameOnRightButton.isChecked():
+    else: #langNameOnRightButton
         currentExample.langNameOption = 2
+
+    #other formatted example options
+    currentExample.isUngrammatical = ui.ungrammaticalBox.isChecked()
+    currentExample.useLiteralTrans = ui.litTranslationBox.isChecked()
+    
     refresh_ui()
 
 def refresh_ui():    
@@ -50,9 +53,13 @@ def set_event_connections():
     ui.copyButton.clicked.connect(lambda: copy_to_clipboard())
 
     #language name option radio buttons
-    ui.noLangNameButton.clicked.connect(lambda: getLangNameOption())
-    ui.langNameFirstLineButton.clicked.connect(lambda: getLangNameOption())
-    ui.langNameOnRightButton.clicked.connect(lambda: getLangNameOption())
+    ui.noLangNameButton.clicked.connect(lambda: FEOptionsUpdated())
+    ui.langNameFirstLineButton.clicked.connect(lambda: FEOptionsUpdated())
+    ui.langNameOnRightButton.clicked.connect(lambda: FEOptionsUpdated())
+
+    #other formatted example options
+    ui.ungrammaticalBox.clicked.connect(lambda: FEOptionsUpdated())
+    ui.litTranslationBox.clicked.connect(lambda: FEOptionsUpdated())
     
 
 if __name__ ==  "__main__":
