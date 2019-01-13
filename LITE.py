@@ -33,7 +33,9 @@ def FEOptionsUpdated():
     
     refresh_ui()
 
-def refresh_ui():    
+def refresh_ui():
+    #empty and replace stylenames in stylename combobox
+    ui.formatStyleComboBox.clear()
     for fs in formatStyles:
         ui.formatStyleComboBox.addItem(fs.stylename)
 
