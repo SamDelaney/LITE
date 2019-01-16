@@ -5,6 +5,7 @@ from FormatStyle import FormatStyle
 from FormattedExample import FormattedExample
 from ScriptManager import ScriptManager
 import clipboard
+import webbrowser
 
 formatStyles = []
 exampleHistory = []
@@ -51,6 +52,10 @@ def copy_to_clipboard():
     exampleHistory.append(currentExample)
 
 def set_event_connections():
+    #does not interact with the model
+    ui.helpButton.clicked.connect(lambda: webbrowser.open('https://github.com/SamDelaney/LITE/wiki'))
+    
+    #calling methods from the model
     ui.pasteButton.clicked.connect(lambda: retrieve_clipboard())
     ui.copyButton.clicked.connect(lambda: copy_to_clipboard())
 
@@ -58,7 +63,6 @@ def set_event_connections():
     ui.noLangNameButton.clicked.connect(lambda: FEOptionsUpdated())
     ui.langNameFirstLineButton.clicked.connect(lambda: FEOptionsUpdated())
     ui.langNameOnRightButton.clicked.connect(lambda: FEOptionsUpdated())
-
     #other formatted example options
     ui.ungrammaticalBox.clicked.connect(lambda: FEOptionsUpdated())
     ui.litTranslationBox.clicked.connect(lambda: FEOptionsUpdated())
