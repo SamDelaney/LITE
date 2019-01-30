@@ -6,6 +6,7 @@ class FormattedExample:
     useLiteralTrans = False
     isUngrammatical = False
     pastedText = ""
+    dataSource = ""
     
     def __init__(self, text, formatStyle):
         pastedText = text

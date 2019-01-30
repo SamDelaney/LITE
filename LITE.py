@@ -12,6 +12,7 @@ exampleHistory = []
 sm = ScriptManager()
 currentExample = FormattedExample("", FormatStyle("")) #initialized with empty values
 
+#--helper methods--
 def initialize_globals():
     #initialize default format styles
     formatStyles.append(FormatStyle("3-line GSRL standard"))
@@ -19,6 +20,16 @@ def initialize_globals():
     currentExample.selectedFormatStyle = formatStyles[0]
     #ui.exampleListView.setModel(Ui_ExampleWidget()) #incomplete, commented out intentionally
 
+
+def refresh_ui():
+    #empty and replace stylenames in stylename combobox
+    ui.formatStyleComboBox.clear()
+    for fs in formatStyles:
+        ui.formatStyleComboBox.addItem(fs.stylename)
+
+    ui.outputPreviewTextEdit.setText(sm.convert_text(currentExample))
+
+#--user actions--
 def FEOptionsUpdated():
     #language name option radio buttons
     if ui.noLangNameButton.isChecked():
@@ -33,24 +44,27 @@ def FEOptionsUpdated():
     currentExample.useLiteralTrans = ui.litTranslationBox.isChecked()
     
     refresh_ui()
-
-def refresh_ui():
-    #empty and replace stylenames in stylename combobox
-    ui.formatStyleComboBox.clear()
-    for fs in formatStyles:
-        ui.formatStyleComboBox.addItem(fs.stylename)
-
-    ui.outputPreviewTextEdit.setText(sm.convert_text(currentExample))
-
+    
 def retrieve_clipboard():
-    currentExample.pastedText = clipboard.paste()
-    ui.clipboardContentTextEdit.setText(currentExample.pastedText)
-    ui.outputPreviewTextEdit.setText(sm.convert_text(currentExample))
+    if currentExample.dataSource == "":
+        global errormessagedialog #Must be global to persist after the function completes. This is bad practice, and will be changed before final version.
+        errormessagedialog = QtWidgets.QErrorMessage()
+        errormessagedialog.showMessage('Please select a data source.')
+    else:
+        currentExample.pastedText = clipboard.paste()
+        ui.clipboardContentTextEdit.setText(currentExample.pastedText)
+        ui.outputPreviewTextEdit.setText(sm.convert_text(currentExample))
 
 def copy_to_clipboard():
     clipboard.copy(currentExample.pastedText)
     exampleHistory.append(currentExample)
 
+def get_data_source():
+    currentExample.dataSource, _ = QtWidgets.QFileDialog.getOpenFileName(ui.AddSourceButton, 'Get Data Source', '', 'Flextext files (*.flextext)')
+    
+    refresh_ui()
+
+#--event connections--
 def set_event_connections():
     #does not interact with the model
     ui.helpButton.clicked.connect(lambda: webbrowser.open('https://github.com/SamDelaney/LITE/wiki'))
@@ -58,6 +72,7 @@ def set_event_connections():
     #calling methods from the model
     ui.pasteButton.clicked.connect(lambda: retrieve_clipboard())
     ui.copyButton.clicked.connect(lambda: copy_to_clipboard())
+    ui.AddSourceButton.clicked.connect(lambda: get_data_source())
 
     #language name option radio buttons
     ui.noLangNameButton.clicked.connect(lambda: FEOptionsUpdated())
