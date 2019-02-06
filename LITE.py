@@ -8,6 +8,7 @@ import clipboard
 import webbrowser
 
 formatStyles = []
+dataSources = []
 exampleHistory = []
 sm = ScriptManager()
 currentExample = FormattedExample("", FormatStyle("")) #initialized with empty values
@@ -20,12 +21,16 @@ def initialize_globals():
     currentExample.selectedFormatStyle = formatStyles[0]
     #ui.exampleListView.setModel(Ui_ExampleWidget()) #incomplete, commented out intentionally
 
-
 def refresh_ui():
     #empty and replace stylenames in stylename combobox
     ui.formatStyleComboBox.clear()
     for fs in formatStyles:
         ui.formatStyleComboBox.addItem(fs.stylename)
+
+    #empty and replace data sources in data source combobox
+    ui.dataSourceComboBox.clear()
+    ui.dataSourceComboBox.addItems(dataSources)
+    ui.dataSourceComboBox.setCurrentIndex(dataSources.index(currentExample.dataSource))
 
     ui.outputPreviewTextEdit.setText(sm.convert_text(currentExample))
 
@@ -42,6 +47,13 @@ def FEOptionsUpdated():
     #other formatted example options
     currentExample.isUngrammatical = ui.ungrammaticalBox.isChecked()
     currentExample.useLiteralTrans = ui.litTranslationBox.isChecked()
+    
+    if ui.dataSourceReferenceBox.isChecked():
+        currentExample.dataSourceRef = str(ui.dataSourceNameComboBox.currentText())
+    else:
+        currentExample.dataSourceRef = ""
+
+    currentExample.dataSource = dataSources[ui.dataSourceComboBox.currentIndex()]
     
     refresh_ui()
     
@@ -61,6 +73,7 @@ def copy_to_clipboard():
 
 def get_data_source():
     currentExample.dataSource, _ = QtWidgets.QFileDialog.getOpenFileName(ui.AddSourceButton, 'Get Data Source', '', 'Flextext files (*.flextext)')
+    dataSources.append(currentExample.dataSource)
     
     refresh_ui()
 
@@ -81,6 +94,8 @@ def set_event_connections():
     #other formatted example options
     ui.ungrammaticalBox.clicked.connect(lambda: FEOptionsUpdated())
     ui.litTranslationBox.clicked.connect(lambda: FEOptionsUpdated())
+    ui.dataSourceReferenceBox.clicked.connect(lambda: FEOptionsUpdated())
+    ui.dataSourceComboBox.activated.connect(lambda: FEOptionsUpdated())
     
 
 if __name__ ==  "__main__":

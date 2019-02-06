@@ -7,6 +7,7 @@ class FormattedExample:
     isUngrammatical = False
     pastedText = ""
     dataSource = ""
+    dataSourceRef = ""
     
     def __init__(self, text, formatStyle):
         pastedText = text
