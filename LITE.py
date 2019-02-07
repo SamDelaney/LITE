@@ -32,7 +32,8 @@ def refresh_ui():
     #empty and replace data sources in data source combobox
     ui.dataSourceComboBox.clear()
     ui.dataSourceComboBox.addItems(dataSources)
-    ui.dataSourceComboBox.setCurrentIndex(dataSources.index(currentExample.dataSource)) #set index to selected item
+    if ui.dataSourceComboBox.count() < 0:
+        ui.dataSourceComboBox.setCurrentIndex(dataSources.index(currentExample.dataSource)) #set index to selected item
 
     ui.outputPreviewTextEdit.setText(sm.convert_text(currentExample))
 
@@ -59,7 +60,8 @@ def FEOptionsUpdated():
     currentExample.selectedFormatStyle = next((fs for fs in formatStyles if fs.stylename == ui.formatStyleComboBox.currentText()), None)
 
     #data source combobox
-    currentExample.dataSource = dataSources[ui.dataSourceComboBox.currentIndex()]
+    if len(dataSources) > 0:
+        currentExample.dataSource = dataSources[ui.dataSourceComboBox.currentIndex()]
     
     refresh_ui()
     
