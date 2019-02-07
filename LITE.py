@@ -26,11 +26,13 @@ def refresh_ui():
     ui.formatStyleComboBox.clear()
     for fs in formatStyles:
         ui.formatStyleComboBox.addItem(fs.stylename)
+    ui.formatStyleComboBox.setCurrentIndex(
+        ui.formatStyleComboBox.findText(currentExample.selectedFormatStyle.stylename))
 
     #empty and replace data sources in data source combobox
     ui.dataSourceComboBox.clear()
     ui.dataSourceComboBox.addItems(dataSources)
-    ui.dataSourceComboBox.setCurrentIndex(dataSources.index(currentExample.dataSource))
+    ui.dataSourceComboBox.setCurrentIndex(dataSources.index(currentExample.dataSource)) #set index to selected item
 
     ui.outputPreviewTextEdit.setText(sm.convert_text(currentExample))
 
@@ -53,6 +55,10 @@ def FEOptionsUpdated():
     else:
         currentExample.dataSourceRef = ""
 
+    #format style combobox
+    currentExample.selectedFormatStyle = next((fs for fs in formatStyles if fs.stylename == ui.formatStyleComboBox.currentText()), None)
+
+    #data source combobox
     currentExample.dataSource = dataSources[ui.dataSourceComboBox.currentIndex()]
     
     refresh_ui()
@@ -94,8 +100,11 @@ def set_event_connections():
     #other formatted example options
     ui.ungrammaticalBox.clicked.connect(lambda: FEOptionsUpdated())
     ui.litTranslationBox.clicked.connect(lambda: FEOptionsUpdated())
+
+    #comboboxes
     ui.dataSourceReferenceBox.clicked.connect(lambda: FEOptionsUpdated())
     ui.dataSourceComboBox.activated.connect(lambda: FEOptionsUpdated())
+    ui.formatStyleComboBox.activated.connect(lambda: FEOptionsUpdated())
     
 
 if __name__ ==  "__main__":
