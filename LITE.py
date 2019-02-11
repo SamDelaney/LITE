@@ -1,5 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from LITE_UI import Ui_LITE
+from LITE_Helpers import TextHelper
 #from ExampleDisplayWidget import Ui_ExampleWidget
 from FormatStyle import FormatStyle
 from FormattedExample import FormattedExample
@@ -8,7 +9,7 @@ import clipboard
 import webbrowser
 
 formatStyles = []
-dataSources = []
+dataSources = [] #tuple of (pruned file name, full path)
 exampleHistory = []
 sm = ScriptManager()
 currentExample = FormattedExample("", FormatStyle("")) #initialized with empty values
@@ -21,6 +22,7 @@ def initialize_globals():
     currentExample.selectedFormatStyle = formatStyles[0]
     #ui.exampleListView.setModel(Ui_ExampleWidget()) #incomplete, commented out intentionally
 
+
 def refresh_ui():
     #empty and replace stylenames in stylename combobox
     ui.formatStyleComboBox.clear()
@@ -31,9 +33,11 @@ def refresh_ui():
 
     #empty and replace data sources in data source combobox
     ui.dataSourceComboBox.clear()
-    ui.dataSourceComboBox.addItems(dataSources)
-    if ui.dataSourceComboBox.count() < 0:
-        ui.dataSourceComboBox.setCurrentIndex(dataSources.index(currentExample.dataSource)) #set index to selected item
+    for ds in dataSources:
+        ui.dataSourceComboBox.addItem(ds[0])
+    if ui.dataSourceComboBox.count() > 1 :
+        ui.dataSourceComboBox.setCurrentIndex(
+            ui.dataSourceComboBox.findText(TextHelper.pruneFileName(currentExample.dataSource))) #set index to selected item
 
     ui.outputPreviewTextEdit.setText(sm.convert_text(currentExample))
 
@@ -61,7 +65,7 @@ def FEOptionsUpdated():
 
     #data source combobox
     if len(dataSources) > 0:
-        currentExample.dataSource = dataSources[ui.dataSourceComboBox.currentIndex()]
+        currentExample.dataSource = dataSources[ui.dataSourceComboBox.currentIndex()][1]
     
     refresh_ui()
     
@@ -81,7 +85,7 @@ def copy_to_clipboard():
 
 def get_data_source():
     currentExample.dataSource, _ = QtWidgets.QFileDialog.getOpenFileName(ui.AddSourceButton, 'Get Data Source', '', 'Flextext files (*.flextext)')
-    dataSources.append(currentExample.dataSource)
+    dataSources.append((TextHelper.pruneFileName(currentExample.dataSource), currentExample.dataSource))
     
     refresh_ui()
 
