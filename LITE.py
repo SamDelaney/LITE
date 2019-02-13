@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from LITE_UI import Ui_LITE
-from LITE_Helpers import TextHelper
+from LITE_Helpers import TextHelper, PutHtml
 #from ExampleDisplayWidget import Ui_ExampleWidget
 from FormatStyle import FormatStyle
 from FormattedExample import FormattedExample
@@ -8,9 +8,9 @@ from ScriptManager import ScriptManager
 import clipboard
 import webbrowser
 
-formatStyles = []
-dataSources = [] #tuple of (pruned file name, full path)
-exampleHistory = []
+formatStyles = [] #array of FormatStyle
+dataSources = [] #array of tuples of (pruned file name, full path)
+exampleHistory = [] #array of FormattedExample, updated on Copy to Clipboard
 sm = ScriptManager()
 currentExample = FormattedExample("", FormatStyle("")) #initialized with empty values
 
@@ -19,7 +19,7 @@ def initialize_globals():
     #initialize default format styles
     formatStyles.append(FormatStyle("3-line GSRL standard"))
     formatStyles.append(FormatStyle("4-line GSRL standard"))
-    currentExample.selectedFormatStyle = formatStyles[0]
+    currentExample.selectedFormatStyle = formatStyles[0] #default format style is "3-line GSRL standard"
     #ui.exampleListView.setModel(Ui_ExampleWidget()) #incomplete, commented out intentionally
 
 
@@ -80,7 +80,7 @@ def retrieve_clipboard():
         ui.outputPreviewTextEdit.setText(sm.convert_text(currentExample))
 
 def copy_to_clipboard():
-    clipboard.copy(currentExample.pastedText)
+    PutHtml(currentExample.pastedText) #outputs into the html portion of the clipboard
     exampleHistory.append(currentExample)
 
 def get_data_source():
