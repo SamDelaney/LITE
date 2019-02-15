@@ -7,6 +7,7 @@ from FormattedExample import FormattedExample
 from ScriptManager import ScriptManager
 import clipboard
 import webbrowser
+import time
 
 formatStyles = [] #array of FormatStyle
 dataSources = [] #array of tuples of (pruned file name, full path)
@@ -80,7 +81,13 @@ def retrieve_clipboard():
         ui.outputPreviewTextEdit.setText(sm.convert_text(currentExample))
 
 def copy_to_clipboard():
-    PutHtml(currentExample.pastedText) #outputs into the html portion of the clipboard
+    #outputs into the html portion of the clipboard
+    PutHtml(currentExample.pastedText)
+    
+    #gets time since epoch (time()) and translates it into current time (ctime())
+    ui.updateTimeLabel.setText(time.ctime(time.time()))
+
+    #adds current formatted example to history
     exampleHistory.append(currentExample)
 
 def get_data_source():
