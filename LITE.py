@@ -59,7 +59,14 @@ class MainApp(QtWidgets.QApplication):
         if ui.dataSourceComboBox.count() > 1 :
             ui.dataSourceComboBox.setCurrentIndex(
                 ui.dataSourceComboBox.findText(TextHelper.pruneFileName(self.currentExample.dataSource))) #set index to selected item
-            ui.outputPreviewTextEdit.setText(self.sm.convert_text(self.currentExample))
+
+            ui.clipboardContentTextEdit.setText(self.currentExample.pastedText)
+            
+            #clear, convert and preview output text
+            ui.outputPreviewTextEdit.clear()
+            self.currentExample.outputText = self.sm.convert_text(self.currentExample)
+            ui.outputPreviewTextEdit.insertHtml(self.currentExample.outputText)
+            
         print(self.currentExample.dataSource)
         
 
@@ -103,7 +110,7 @@ class MainApp(QtWidgets.QApplication):
 
     def copy_to_clipboard(self):
         #outputs into the html portion of the clipboard
-        PutHtml(self.currentExample.pastedText)
+        PutHtml(self.currentExample.outputText)
         
         #gets time since epoch (time()) and translates it into current time (ctime())
         ui.updateTimeLabel.setText(time.ctime(time.time()))

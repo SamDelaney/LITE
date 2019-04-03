@@ -6,6 +6,7 @@ class FormattedExample:
     useLiteralTrans = False
     isUngrammatical = False
     pastedText = ""
+    outputText = pastedText
     dataSource = ""
     dataSourceRef = ""
     

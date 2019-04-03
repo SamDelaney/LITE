@@ -1,4 +1,9 @@
+from PyQt5 import QtCore, QtGui, QtWidgets
+from LITE_UI import Ui_LITE
 import ntpath
+
+#class UIHelper():
+    
 
 class TextHelper:
     @staticmethod
