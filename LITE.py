@@ -86,13 +86,16 @@ class MainApp(QtWidgets.QApplication):
 
         ui.clipboardContentTextEdit.setText(self.currentExample.pastedText)
 
-        #clear, convert and preview output text
-        ui.outputPreviewTextEdit.clear()
-        self.currentExample.outputText = self.sm.convert_text(self.currentExample)
-        ui.outputPreviewTextEdit.insertHtml(self.currentExample.outputText)
-
-        print(self.currentExample.dataSource.ref)
-
+        if self.currentExample.dataSource.ref == "":
+            global errormessagedialog #Must be global to persist after the function completes. This is bad practice, and will be changed before final version.
+            errormessagedialog = QtWidgets.QErrorMessage()
+            errormessagedialog.showMessage('Please select a data source.')
+        else:
+            ui.clipboardContentTextEdit.setText(self.currentExample.pastedText)
+            #clear, convert and preview output text
+            ui.outputPreviewTextEdit.clear()
+            self.currentExample.outputText = self.sm.convert_text(self.currentExample)
+            ui.outputPreviewTextEdit.insertHtml(self.currentExample.outputText)
 
     #--user actions--
     def FEOptionsUpdated(self):
@@ -119,14 +122,8 @@ class MainApp(QtWidgets.QApplication):
         self.refresh_ui()
 
     def retrieve_clipboard(self):
-        if self.currentExample.dataSource.ref == "":
-            global errormessagedialog #Must be global to persist after the function completes. This is bad practice, and will be changed before final version.
-            errormessagedialog = QtWidgets.QErrorMessage()
-            errormessagedialog.showMessage('Please select a data source.')
-        else:
-            self.currentExample.pastedText = clipboard.paste()
-            ui.clipboardContentTextEdit.setText(self.currentExample.pastedText)
-            ui.outputPreviewTextEdit.setText(self.sm.convert_text(self.currentExample))
+        self.currentExample.pastedText = clipboard.paste()
+
 
     def copy_to_clipboard(self):
         #outputs into the html portion of the clipboard

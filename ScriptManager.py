@@ -16,8 +16,7 @@ class ScriptManager:
             return "right"
 
     def convert_text(self, fe):
-
-        doc = ET.parse("scripts/icelandic.flextext")
+        doc = ET.parse(fe.dataSource.ref)
 
         xslt = ET.parse("scripts/xml2LeipzigLITE2.xsl")
 
