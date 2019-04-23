@@ -1,6 +1,7 @@
 class FormatStyle(object):
     stylename = "placeholder text"
-    
-    def __init__(self, name):
+    has_baseline = False
+
+    def __init__(self, name, hasb):
        self.stylename = name
-    
+       self.has_baseline = hasb
