@@ -101,14 +101,14 @@
 		<xsl:apply-templates/>
 	</xsl:template>
 
-	<!--xsl:template match="interlinear-text/item[@type='title']">
+	<!--<xsl:template match="interlinear-text/item[@type='title']">
 		<h1>
 			<xsl:attribute name="lang"> Title: <xsl:value-of select="@lang"/>
 			</xsl:attribute>
 			<xsl:apply-templates/>
-		</h1>
-	</xsl:template-->
-	<xsl:template match="interlinear-text/item[@type='title-abbreviation']"/>
+		</h1>-->
+	<!--</xsl:template>-->
+	<!--xsl:template match="interlinear-text/item[@type='title-abbreviation']"/-->
 	<!--xsl:template match="interlinear-text/item[@type='source']">
 		<h2>
 			<xsl:apply-templates/>
@@ -366,7 +366,7 @@
 				</xsl:for-each>
 			</xsl:if>
 		</xsl:if>
-		<hr/>
+		<!--<hr/>-->
 	</xsl:template>
 
 	<!-- MISCELLANEOUS -->
@@ -383,11 +383,11 @@
 	</xsl:template>
 
 	<!--This is not currently used -->
-	<xsl:template match="*">
+	<!--<xsl:template match="*">
 		<xsl:copy>
 			<xsl:copy-of select="@*"/>
 			<xsl:apply-templates/>
 		</xsl:copy>
-	</xsl:template>
+	</xsl:template>-->
 
 </xsl:stylesheet>

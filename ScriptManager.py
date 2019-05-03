@@ -16,15 +16,16 @@ class ScriptManager:
         else:
             return "right"
 
-    def convert_text(self, fe):
+    def SetPhrase(self, fe):
         PF = PhraseFinder(fe.dataSource.ref)
 
-        output = PF.Phrase(fe.pastedText) #should be a better way of doing this
-                                        #look into ET.fromstring() instead of ET.parse()
+        output = PF.Phrase(fe.pastedText)
+
         outputfile = open("outputfile.flextext", "w+")
         outputfile.write(output)
         outputfile.close()
 
+    def convert_text(self, fe):
         #doc = ET.parse("scripts/OutputTest.flextext")
         doc = ET.parse("outputfile.flextext")
 

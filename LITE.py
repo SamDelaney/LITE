@@ -126,6 +126,7 @@ class MainApp(QtWidgets.QApplication):
 
     def retrieve_clipboard(self):
         self.currentExample.pastedText = clipboard.paste()
+        self.sm.SetPhrase(self.currentExample)
         self.refresh_ui()
 
     def copy_to_clipboard(self):
@@ -142,7 +143,6 @@ class MainApp(QtWidgets.QApplication):
     def get_data_source(self):
         self.currentExample.dataSource.ref, _ = QtWidgets.QFileDialog.getOpenFileName(ui.AddSourceButton, 'Get Data Source', '', 'Flextext files (*.flextext)')
         self.dataSources.append((TextHelper.pruneFileName(self.currentExample.dataSource.ref), self.currentExample.dataSource.ref))
-
         self.refresh_ui()
 
     #--event connections--
