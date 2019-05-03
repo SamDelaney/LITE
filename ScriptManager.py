@@ -1,5 +1,6 @@
 from FormattedExample import FormattedExample
 from FormatStyle import FormatStyle
+from PhraseFinder import PhraseFinder
 import lxml.etree as ET
 
 #conversion scripts
@@ -16,7 +17,16 @@ class ScriptManager:
             return "right"
 
     def convert_text(self, fe):
-        doc = ET.parse(fe.dataSource.ref)
+        PF = PhraseFinder(fe.dataSource.ref)
+
+        output = PF.Phrase(fe.pastedText) #should be a better way of doing this
+                                        #look into ET.fromstring() instead of ET.parse()
+        outputfile = open("outputfile.flextext", "w+")
+        outputfile.write(output)
+        outputfile.close()
+
+        #doc = ET.parse("scripts/OutputTest.flextext")
+        doc = ET.parse("outputfile.flextext")
 
         xslt = ET.parse("scripts/xml2LeipzigLITE2.xsl")
 

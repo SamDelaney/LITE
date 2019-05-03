@@ -83,13 +83,16 @@ class MainApp(QtWidgets.QApplication):
         if ui.dataSourceComboBox.count() > 1 :
             ui.dataSourceComboBox.setCurrentIndex(
                 ui.dataSourceComboBox.findText(TextHelper.pruneFileName(self.currentExample.dataSource.ref))) #set index to selected item
-
-        ui.clipboardContentTextEdit.setText(self.currentExample.pastedText)
+            ui.clipboardContentTextEdit.setText(self.currentExample.pastedText)
 
         if self.currentExample.dataSource.ref == "":
             global errormessagedialog #Must be global to persist after the function completes. This is bad practice, and will be changed before final version.
             errormessagedialog = QtWidgets.QErrorMessage()
             errormessagedialog.showMessage('Please select a data source.')
+
+        elif self.currentExample.pastedText == "":
+            return
+
         else:
             ui.clipboardContentTextEdit.setText(self.currentExample.pastedText)
             #clear, convert and preview output text
@@ -123,7 +126,7 @@ class MainApp(QtWidgets.QApplication):
 
     def retrieve_clipboard(self):
         self.currentExample.pastedText = clipboard.paste()
-
+        self.refresh_ui()
 
     def copy_to_clipboard(self):
         #outputs into the html portion of the clipboard
