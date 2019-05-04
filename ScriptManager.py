@@ -3,9 +3,6 @@ from FormatStyle import FormatStyle
 from PhraseFinder import PhraseFinder
 import lxml.etree as ET
 
-#conversion scripts
-from scripts.DebugScript import runScript
-
 class ScriptManager:
 
     def name_option(self, option):
@@ -29,7 +26,7 @@ class ScriptManager:
         #doc = ET.parse("scripts/OutputTest.flextext")
         doc = ET.parse("outputfile.flextext")
 
-        xslt = ET.parse("scripts/xml2LeipzigLITE2.xsl")
+        xslt = ET.parse("xml2LeipzigLITE2.xsl")
 
         transform = ET.XSLT(xslt)
 

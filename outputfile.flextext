@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <document version="2">
+        <interlinear-text guid="dcca1a8a-95bf-4814-897e-6587e7a2e75d">
+        <paragraphs>
+        <paragraph><phrase guid="d3d05fdd-772b-437a-baed-12bf7a71731b" begin-time-offset="215025" end-time-offset="216787" media-file="6de7cd16-f080-42f1-940c-0ccb9e316a69">
+            <item type="segnum" lang="en">66</item>
+            <words>
+              <word guid="3514e465-9fef-4404-87f1-6d49c3c85e29">
+                <item type="txt" lang="th">l&#603;&#660;</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="txt" lang="th">l&#603;&#660;</item>
+                    <item type="cf" lang="th">l&#603;&#660;</item>
+                    <item type="gls" lang="en">and</item>
+                    <item type="msa" lang="en">conn</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">and</item>
+              </word>
+              <word guid="382f59b5-64fd-48b3-aa9d-362921bc3255">
+                <item type="txt" lang="th">p&#603;n</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="txt" lang="th">p&#603;n</item>
+                    <item type="cf" lang="th">p&#603;n</item>
+                    <item type="gls" lang="en">to.be.PL</item>
+                    <item type="msa" lang="en">v</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">to.be</item>
+                <item type="pos" lang="en">v</item>
+              </word>
+              <word guid="528e6d87-970b-4f1c-99c9-30925b9ffd5e">
+                <item type="txt" lang="th">k&#633;a&#331;</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="txt" lang="th">k&#633;a&#331;</item>
+                    <item type="cf" lang="th">k&#633;a&#331;</item>
+                    <item type="gls" lang="en">time</item>
+                    <item type="msa" lang="en">n</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">time</item>
+              </word>
+              <word guid="0626686c-60a5-4c06-bbcf-42564a3a6f17">
+                <item type="txt" lang="th">&#633;&#603;k&#794;</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="txt" lang="th">&#633;&#603;k&#794;</item>
+                    <item type="cf" lang="th">&#638;ek&#794;</item>
+                    <item type="gls" lang="en">first</item>
+                    <item type="msa" lang="en">adj</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">first</item>
+              </word>
+            </words>
+            <item type="gls" lang="en">and it was my first time</item>
+          </phrase>
+        </paragraph>
+        </paragraphs>
+        </interlinear-text>
+        </document>
