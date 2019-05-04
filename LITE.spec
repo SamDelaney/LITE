@@ -30,7 +30,7 @@ exe = EXE(pyz,
 coll = COLLECT(exe,
                a.binaries,
                a.zipfiles,
-               a.datas,
+               a.datas += [('./src/xml2LeipzigLITE2.xsl', ''.)],
                strip=False,
                upx=True,
                name='LITE')

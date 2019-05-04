@@ -60,14 +60,15 @@ class PhraseFinder:
         #get all paragraph elements and add them to self.Phrases
     def GetPhrases(self):
         self.Phrases = self.FlextextSource.findall(".//phrase")
-        print(len(self.Phrases))
+        #print(len(self.Phrases))
 
         #remove all paragraph elements that do not match the paragraph number
         # unless no such match exists
     def ParseByIndex(self, input):
         #get index for input
         try:
-            num = float(self.lines[0])
+            #print("Segment Number: " + self.lines[0].split("\t")[0])
+            num = float(self.lines[0].split("\t")[0])
             self.lines.pop(0) #remove index from clipboard for editing clarity
         except:
             return
@@ -99,6 +100,7 @@ class PhraseFinder:
         #perhaps modify to return list of paragraphs in future?
     def ParseByContent(self, input):
         highScore = (-1, -1) #phrase number, score
+        #print(len(self.Phrases))
         for i in range(len(self.Phrases)):
             phrase = {} #creates dictionary for paragraph lines
             for item in self.Phrases[i].iter('item'): #fill dictionary with lines
@@ -112,7 +114,7 @@ class PhraseFinder:
 
             if currentScore > highScore[1]:
                 highScore = (i, currentScore)
-                print(highScore)
+                #print(highScore)
             #end for
         #end for
         return self.Phrases[highScore[0]]

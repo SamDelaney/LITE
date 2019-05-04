@@ -44,7 +44,7 @@ class MainApp(QtWidgets.QApplication):
     #--helper methods--
     def store_data(self):
         data = [self.formatStyles, self.dataSources, self.exampleHistory, self.currentExample]
-        with open('LITE_data.pickle', 'wb') as handle:
+        with open('data/LITE_data.pickle', 'wb') as handle:
             pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 
@@ -53,7 +53,7 @@ class MainApp(QtWidgets.QApplication):
 
         #retrieves data from pickle file
         try:
-            with open('LITE_data.pickle', 'rb') as handle:
+            with open('data/LITE_data.pickle', 'rb') as handle:
                data = pickle.load(handle)
             self.formatStyles = data[0]
             self.dataSources = data[1]

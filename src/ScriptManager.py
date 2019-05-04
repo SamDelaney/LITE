@@ -18,14 +18,13 @@ class ScriptManager:
 
         output = PF.Phrase(fe.pastedText)
 
-        outputfile = open("outputfile.flextext", "w+")
+        outputfile = open("data/outputfile.flextext", "w+")
         outputfile.write(output)
         outputfile.close()
 
     def convert_text(self, fe):
         #doc = ET.parse("scripts/OutputTest.flextext")
-        doc = ET.parse("outputfile.flextext")
-
+        doc = ET.parse("data/outputfile.flextext")
         xslt = ET.parse("xml2LeipzigLITE2.xsl")
 
         transform = ET.XSLT(xslt)
