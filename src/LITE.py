@@ -108,6 +108,13 @@ class MainApp(QtWidgets.QApplication):
         #data source reference option radio buttons
         self.currentExample.dataSource.place = ui.sourceRefButtons.checkedId()
 
+        #data source ref and name option cannot both be first line
+        if self.currentExample.dataSource.place == 1 and self.currentExample.langOption.place == 1:
+            self.currentExample.dataSource.place = 0
+            ui.sourceRefButtons.button(0).setChecked(True)
+            ui.sourceRefButtons.button(1).setChecked(False)
+            ui.updateTimeLabel.setText("Cannot have two first lines!")
+
         #other formatted example options
         self.currentExample.isUngrammatical = ui.ungrammaticalBox.isChecked()
         self.currentExample.useLiteralTrans = ui.litTranslationBox.isChecked()
