@@ -3,10 +3,10 @@
 block_cipher = None
 
 
-a = Analysis(['LITE.py'],
+a = Analysis(['src\\LITE.py'],
              pathex=['C:\\Users\\Sam\\LITE'],
              binaries=[],
-             datas=[],
+             datas=[('./src/xml2LeipzigLITE2.xsl', '.'), ('./src/data/outputfile.flextext', './data')],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
@@ -30,7 +30,7 @@ exe = EXE(pyz,
 coll = COLLECT(exe,
                a.binaries,
                a.zipfiles,
-               a.datas += [('./src/xml2LeipzigLITE2.xsl', ''.)],
+               a.datas,
                strip=False,
                upx=True,
                name='LITE')

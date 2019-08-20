@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from LITE_UI import Ui_LITE
-from LITE_Helpers import TextHelper, PutHtml
+from LITE_Helpers import TextHelper, PutHtml, paste_win32
 #from ExampleDisplayWidget import Ui_ExampleWidget
 from FormatStyle import FormatStyle
 from FormattedExample import FormattedExample
@@ -125,8 +125,11 @@ class MainApp(QtWidgets.QApplication):
         self.refresh_ui()
 
     def retrieve_clipboard(self):
-        self.currentExample.pastedText = clipboard.paste()
+
+        self.currentExample.pastedText = paste_win32()
+
         self.sm.SetPhrase(self.currentExample)
+
         self.refresh_ui()
 
     def copy_to_clipboard(self):

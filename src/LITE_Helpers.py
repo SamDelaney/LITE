@@ -30,9 +30,16 @@ import re
 import time
 import random
 import win32clipboard
+import win32con
 
 #---------------------------------------------------------------------------
 #  Convenience functions to do the most common operation
+
+def paste_win32():
+    win32clipboard.OpenClipboard()
+    text = win32clipboard.GetClipboardData(win32con.CF_UNICODETEXT)
+    win32clipboard.CloseClipboard()
+    return text
 
 def HasHtml():
     """

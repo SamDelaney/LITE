@@ -23,7 +23,6 @@ class ScriptManager:
         outputfile.close()
 
     def convert_text(self, fe):
-        #doc = ET.parse("scripts/OutputTest.flextext")
         doc = ET.parse("data/outputfile.flextext")
         xslt = ET.parse("xml2LeipzigLITE2.xsl")
 
