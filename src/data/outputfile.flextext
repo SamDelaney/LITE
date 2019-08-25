@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <document version="2">
+        <interlinear-text guid="dcca1a8a-95bf-4814-897e-6587e7a2e75d">
+        <paragraphs>
+        <paragraph><phrase guid="9e4f3d4e-8b4c-4ff2-b4ba-df6aea5200e5" begin-time-offset="186150" end-time-offset="188950" media-file="6de7cd16-f080-42f1-940c-0ccb9e316a69">
+            <item type="segnum" lang="en">57</item>
+            <words>
+              <word guid="6e57bec3-1a4b-4540-abdf-27d6ecbc2328">
+                <item type="txt" lang="th">tam</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="cf" lang="th">tam</item>
+                    <item type="gls" lang="en">ONGOING</item>
+                    <item type="msa" lang="en">adv</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">do</item>
+                <item type="pos" lang="en">adv</item>
+              </word>
+              <word guid="29f17400-027b-4d66-b539-c8aa527d3ad3">
+                <item type="txt" lang="th">haj</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="cf" lang="th">haj</item>
+                    <item type="gls" lang="en">give</item>
+                    <item type="msa" lang="en">v</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">give</item>
+              </word>
+              <word guid="55680842-bbc5-4db3-a060-a7e980a21cbc">
+                <item type="txt" lang="th">tuk&#794;</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="cf" lang="th">tuk&#794;</item>
+                    <item type="gls" lang="en">every</item>
+                    <item type="msa" lang="en">adj</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">every</item>
+              </word>
+              <word guid="d066d923-382e-4c60-82e7-7f56e363f2e0">
+                <item type="txt" lang="th">kon</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="cf" lang="th">kon</item>
+                    <item type="gls" lang="en">person</item>
+                    <item type="msa" lang="en">n</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">person</item>
+                <item type="pos" lang="en">n</item>
+              </word>
+              <word guid="16cdb79c-0fc2-4bb0-ac48-eb9369dad697">
+                <item type="txt" lang="th">&#633;u&#720;</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="cf" lang="th">&#633;u&#720;</item>
+                    <item type="gls" lang="en">know</item>
+                    <item type="msa" lang="en">v</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">know</item>
+              </word>
+              <word guid="b0439c63-e7f3-45e2-b25d-df2d3ff67304">
+                <item type="txt" lang="th">wa&#720;</item>
+                <morphemes>
+                  <morph type="stem" guid="d7f713e8-e8cf-11d3-9764-00c04f186933">
+                    <item type="cf" lang="th">wa&#720;</item>
+                    <item type="gls" lang="en">REL</item>
+                    <item type="msa" lang="en">rel</item>
+                  </morph>
+                </morphemes>
+                <item type="gls" lang="en">that</item>
+              </word>
+            </words>
+            <item type="gls" lang="en"> and made everyone know that</item>
+            <item type="lit" lang="en"> &#8206;&#8206;make give every person know that</item>
+          </phrase>
+        </paragraph>
+        </paragraphs>
+        </interlinear-text>
+        </document>

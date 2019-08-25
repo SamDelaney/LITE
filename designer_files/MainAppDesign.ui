@@ -21,7 +21,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="formatExample">
        <attribute name="title">
@@ -994,10 +994,13 @@
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Expanding</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>40</width>
-              <height>20</height>
+              <height>5</height>
              </size>
             </property>
            </spacer>
@@ -1015,7 +1018,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QListView" name="exampleListView"/>
+         <widget class="QListWidget" name="listWidget"/>
         </item>
        </layout>
       </widget>

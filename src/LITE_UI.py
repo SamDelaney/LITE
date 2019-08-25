@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'designer_files/MainAppDesign.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.11.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -417,7 +417,7 @@ class Ui_LITE(object):
         self.historyTitleLabel.setFont(font)
         self.historyTitleLabel.setObjectName("historyTitleLabel")
         self.horizontalLayout_2.addWidget(self.historyTitleLabel, 0, QtCore.Qt.AlignLeft)
-        spacerItem18 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        spacerItem18 = QtWidgets.QSpacerItem(40, 5, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem18)
         self.sortByLabel = QtWidgets.QLabel(self.exampleHistory)
         self.sortByLabel.setObjectName("sortByLabel")
@@ -426,9 +426,9 @@ class Ui_LITE(object):
         self.sortByComboBox.setObjectName("sortByComboBox")
         self.horizontalLayout_2.addWidget(self.sortByComboBox, 0, QtCore.Qt.AlignRight)
         self.verticalLayout_3.addLayout(self.horizontalLayout_2)
-        self.exampleListView = QtWidgets.QListView(self.exampleHistory)
-        self.exampleListView.setObjectName("exampleListView")
-        self.verticalLayout_3.addWidget(self.exampleListView)
+        self.listWidget = QtWidgets.QListWidget(self.exampleHistory)
+        self.listWidget.setObjectName("listWidget")
+        self.verticalLayout_3.addWidget(self.listWidget)
         self.tabWidget.addTab(self.exampleHistory, "")
         self.preferences = QtWidgets.QWidget()
         self.preferences.setObjectName("preferences")
@@ -437,7 +437,7 @@ class Ui_LITE(object):
         LITE.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(LITE)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(LITE)
 
     def retranslateUi(self, LITE):

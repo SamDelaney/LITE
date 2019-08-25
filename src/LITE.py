@@ -5,6 +5,7 @@ from LITE_Helpers import TextHelper, PutHtml, paste_win32
 from FormatStyle import FormatStyle
 from FormattedExample import FormattedExample
 from ScriptManager import ScriptManager
+from ExampleHistory import HistoryWidget
 import clipboard
 import webbrowser
 import time
@@ -28,6 +29,9 @@ class AutoSetup_Ui_LITE(Ui_LITE):
         self.sourceRefButtons.addButton(self.noDataSourceButton, 0)
         self.sourceRefButtons.addButton(self.dataSourceFirstLineButton, 1)
         self.sourceRefButtons.addButton(self.dataSourceOnRightButton, 2)
+
+        self.historyView = HistoryWidget()
+        self.listWidget.addItem(self.historyView)
 
 
 class MainApp(QtWidgets.QApplication):
